@@ -1057,6 +1057,10 @@ startBtn.addEventListener("click", async () => {
 let fxEnabled = false;
 
 fxBtn.addEventListener("click", async () => {
+  if (audioCtx.state === "suspended") {
+    await audioCtx.resume();
+  }
+  
   if (!fxEnabled) {
     // === CASO 1: ENCENDER ===
     try {
